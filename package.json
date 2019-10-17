@@ -1,5 +1,5 @@
 {
-  "name": "vue-multiselect",
+  "name": "ipushpull-vue-multiselect",
   "version": "2.1.6",
   "private": false,
   "types": "index.d.ts",
@@ -94,7 +94,7 @@
   "author": "Damian Dulisz <damian.dulisz@gmail.com>",
   "jsnext:main": "dist/vue-multiselect.min.js",
   "bugs": {
-    "url": "https://github.com/shentao/vue-multiselect/issues"
+    "url": "https://github.com/iPushPull/vue-multiselect/issues"
   },
   "jspm": {
     "main": "dist/vue-multiselect.min.js",
@@ -103,7 +103,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shentao/vue-multiselect.git"
+    "url": "git+https://github.com/iPushPull/vue-multiselect.git"
   },
   "description": "Multiselect component for vue.js",
   "unpkg": "dist/vue-multiselect.min.js",
