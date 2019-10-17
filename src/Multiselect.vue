@@ -643,7 +643,7 @@ fieldset[disabled] .multiselect {
 
 .multiselect__content-wrapper {
   position: absolute;
-  display: block;
+  display: flex;
   background: #fff;
   width: 100%;
   border: 1px solid #e8e8e8;
@@ -652,6 +652,7 @@ fieldset[disabled] .multiselect {
   border-bottom-right-radius: 2px;
   z-index: 50;
   -webkit-overflow-scrolling: touch;
+  flex-direction: column;
 }
 
 .multiselect__content-wrapper > div {
