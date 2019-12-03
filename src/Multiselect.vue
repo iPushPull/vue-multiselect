@@ -117,12 +117,13 @@
                     :class="optionHighlight(index, option)"
                     @click.stop="select(option)"
                     @mouseenter.self="pointerSet(index)"
-                    :data-select="option && option.isTag ? tagPlaceholder : selectLabelText"
+                    :data-select="option && option.isTag ? '' : selectLabelText"
                     :data-selected="selectedLabelText"
                     :data-deselect="deselectLabelText"
                     class="multiselect__option">
                       <slot name="option" :option="option" :search="search">
                         <span>{{ getOptionLabel(option) }}</span>
+                        <span class="is-tag" v-if="option && option.isTag">{{tagPlaceholder}}</span>
                       </slot>
                   </span>
                   <span
@@ -141,12 +142,14 @@
               </template>
               <li v-show="showNoResults && (filteredOptions.length === 0 && search && !loading)">
                 <span class="multiselect__option">
-                  <slot name="noResult" :search="search">No elements found. Consider changing the search query.</slot>
+                  <slot name="noResult" :search="search">
+                    <span>No elements found. Consider changing the search query.</span>
+                  </slot>
                 </span>
               </li>
               <li v-show="showNoOptions && (options.length === 0 && !search && !loading)">
                 <span class="multiselect__option">
-                  <slot name="noOptions">List is empty.</slot>
+                  <slot name="noOptions"><span>List is empty.</span></slot>
                 </span>
               </li>
               <slot name="afterList"></slot>
@@ -688,8 +691,8 @@ fieldset[disabled] .multiselect {
 }
 
 .multiselect__option {
-  display: block;
-  padding: 6px 8px;
+  display: flex;
+  /* padding: 6px 8px; */
   min-height: 16px;
   line-height: 1;
   text-decoration: none;
@@ -703,14 +706,23 @@ fieldset[disabled] .multiselect {
 .multiselect__option > span {
   white-space: nowrap;
 }
+.multiselect__option > span:first-child {
+  flex: 1;
+}
+.multiselect__option > span.is-tag {
+  background: #41b883;
+  color: white;
+}
 
 .multiselect__option:after {
-  top: 0;
+  padding: 6px 8px;
+  white-space: nowrap;
+  /* top: 0;
   right: 0;
   position: absolute;
   line-height: 40px;
   padding-right: 12px;
-  padding-left: 20px;
+  padding-left: 20px; */
   /* font-size: 13px; */
 }
 
@@ -720,11 +732,11 @@ fieldset[disabled] .multiselect {
   color: white;
 }
 
-.multiselect__option--highlight:after {
+/* .multiselect__option--highlight:after {
   content: attr(data-select);
   background: #41b883;
   color: white;
-}
+} */
 
 .multiselect__option--selected {
   background: #f3f3f3;
