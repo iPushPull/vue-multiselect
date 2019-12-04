@@ -202,7 +202,7 @@ export default {
      */
     selectedLabel: {
       type: String,
-      default: 'Selected'
+      default: ''
     },
     /**
      * String to show when pointing to an already selected option
@@ -211,7 +211,7 @@ export default {
      */
     deselectLabel: {
       type: String,
-      default: 'Press enter to remove'
+      default: 'Remove'
     },
     /**
      * String to show when pointing to an already selected option
